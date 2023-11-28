@@ -1,0 +1,32 @@
+<?php
+/** @var \Favicode\ProductFaq\Block\Form $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<h3>Ask your question here</h3>
+<form action="<?= $escaper->escapeUrl($block->getAction()) ?>" class="review-form" method="post" id="faq-form" data-role="product-faq-form" data-bind="scope: 'review-faq'">
+    <fieldset class="fieldset review-fieldset" data-hasrequired="<?= $escaper->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <div class="field review-field-text required">
+            <label for="review_field" class="label"><span><?= $escaper->escapeHtml(__('Question')) ?></span></label>
+            <div class="control">
+                <textarea name="question" id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <div class="actions-toolbar review-form-actions">
+            <div class="primary actions-primary">
+                <button type="submit" class="action submit primary"><span><?= $escaper->escapeHtml(__('Submit Question')) ?></span></button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script type="text/x-magento-init">
+    {
+        "[data-role=product-faq-form]": {
+            "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+    },
+    "#faq-form": {
+        "Magento_Review/js/error-placement": {},
+        "Magento_Review/js/submit-review": {}
+    }
+}
+</script>

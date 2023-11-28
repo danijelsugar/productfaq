@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="favicode_faq" resource="default" engine="innodb" comment="Product FAQ Table">
+        <column xsi:type="smallint" name="faq_id" unsigned="true" nullable="false" identity="true"
+                comment="Product FAQ ID" />
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Product ID" />
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
+                comment="Customer ID" />
+        <column xsi:type="text" name="question" nullable="false" comment="Question" />
+        <column xsi:type="text" name="answer" nullable="true" comment="Answer" />
+        <column xsi:type="boolean" name="is_frequent" nullable="false" default="0" comment="Is Frequent"/>
+        <column xsi:type="boolean" name="is_answered" nullable="false" default="0" comment="Is Answered"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Faq create date"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faq_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="FAQ_CUSTOMER_ID_CUSTOMER_ENTITY_ID" table="favicode_faq"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FAQ_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ID" table="favicode_faq"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+
+        <index referenceId="FAQ_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+        <index referenceId="FAQ_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+    </table>
+
+    <table name="favicode_faq_store" resource="default" engine="innodb" comment="Product FAQ Store">
+        <column xsi:type="smallint" name="faq_id" unsigned="true" nullable="false" identity="false"
+                comment="FAQ ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faq_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FAQ_STORE_FAQ_ID_FAQ_FAQ_ID" table="favicode_faq_store"
+                    column="faq_id" referenceTable="favicode_faq" referenceColumn="faq_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FAQ_STORE_STORE_ID_STORE_STORE_ID" table="favicode_faq_store"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="FAQ_STORE_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>
