@@ -3,5 +3,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
     <preference for="Favicode\ProductFaq\Api\Data\FaqInterface" type="Favicode\ProductFaq\Model\Faq" />
+    <preference for="Favicode\ProductFaq\Api\FaqRepositoryInterface" type="Favicode\ProductFaq\Model\FaqRepository"/>
+    <preference for="Favicode\ProductFaq\Api\Data\FaqSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
 
 </config>

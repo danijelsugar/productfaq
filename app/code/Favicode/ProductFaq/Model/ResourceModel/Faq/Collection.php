@@ -44,7 +44,7 @@ class Collection extends AbstractCollection
      * Add store filter
      *
      * @param int|int[] $storeId
-     * @return $this
+     * @return Collection
      */
     public function addStoreFilter(array|int $storeId): Collection
     {
@@ -60,6 +60,8 @@ class Collection extends AbstractCollection
 
     /**
      * Example how to join
+     *
+     * @return Collection
      */
     public function joinProductName(): Collection
     {
@@ -68,6 +70,9 @@ class Collection extends AbstractCollection
         return $this;
     }
 
+    /**
+     * @return Collection
+     */
     public function joinCustomer(): Collection
     {
         $this->getSelect()->join(
