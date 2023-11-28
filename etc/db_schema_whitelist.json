@@ -1,0 +1,37 @@
+{
+    "favicode_faq": {
+        "column": {
+            "faq_id": true,
+            "product_id": true,
+            "customer_id": true,
+            "question": true,
+            "answer": true,
+            "is_frequent": true,
+            "is_answered": true,
+            "created_at": true
+        },
+        "index": {
+            "FAVICODE_FAQ_PRODUCT_ID": true,
+            "FAVICODE_FAQ_CUSTOMER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FAVICODE_FAQ_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "FAVICODE_FAQ_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+        }
+    },
+    "favicode_faq_store": {
+        "column": {
+            "faq_id": true,
+            "store_id": true
+        },
+        "index": {
+            "FAVICODE_FAQ_STORE_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FAVICODE_FAQ_STORE_FAQ_ID_FAVICODE_FAQ_FAQ_ID": true,
+            "FAVICODE_FAQ_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

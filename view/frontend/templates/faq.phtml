@@ -1,0 +1,16 @@
+<?php
+/**
+ * @var \Favicode\ProductFaq\Block\Product\Faq $block
+ * @var \Laminas\Escaper\Escaper $escaper
+ */
+
+$items = $block->getFaqCollection();
+?>
+
+<h1>FAQ</h1>
+<?php foreach ($items as $item): ?>
+    <p>Question: <span><?= $escaper->escapeHtml(__($item->getQuestion())) ?></span></p>
+    <p>Answer: <span><?= $escaper->escapeHtml(__($item->getAnswer())) ?></span></p>
+    <hr>
+<?php endforeach; ?>
+<?= $block->getChildHtml('') ?>
