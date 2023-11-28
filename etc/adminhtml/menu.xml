@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Favicode_ProductFaq::catalog_faqs_all" title="All FAQs" translate="title" module="Favicode_ProductFaq" parent="Magento_Backend::marketing_user_content" sortOrder="30" action="faq/product/index" resource="Favicode_ProductFaq::faqs_all"/>
-    </menu>
-</config>
