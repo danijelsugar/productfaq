@@ -11,13 +11,6 @@ class Index extends Action implements HttpGetActionInterface
 {
     public const ADMIN_RESOURCE = 'Favicode_ProductFaq::faq_all';
 
-    /**
-     * Array of actions which can be processed without secret key validation
-     *
-     * @var array
-     */
-    protected $_publicActions = ['edit'];
-
     public function execute(): Page
     {
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
