@@ -2,18 +2,19 @@
 
 namespace Favicode\ProductFaq\Controller\Customer;
 
+use Magento\Customer\Controller\AccountInterface;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\Page;
 
-class Index implements HttpGetActionInterface
+class Index implements AccountInterface, HttpGetActionInterface
 {
     public function __construct(
         private ResultFactory $resultFactory,
     ) {
     }
 
-    public function execute(): Page
+    public function execute(): ?Page
     {
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
 
