@@ -2,8 +2,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Favicode\ProductFaq\Block\Product\Faq" name="product.faq" as="faq" template="Favicode_ProductFaq::faq.phtml" after="product.info.details">
-                <block class="Favicode\ProductFaq\Block\Form" name="product.faq.form" as="faq_form" />
+            <block class="Favicode\ProductFaq\Block\Product\Faq" name="product.faq" as="faq" template="Favicode_ProductFaq::faq.phtml" after="product.info.details" ifconfig="catalog/faq/active">
+                <block class="Favicode\ProductFaq\Block\Form" name="product.faq.form" as="faq_form" ifconfig="catalog/faq/active" />
             </block>
         </referenceContainer>
     </body>
